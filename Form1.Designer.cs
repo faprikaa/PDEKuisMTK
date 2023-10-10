@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            components = new System.ComponentModel.Container();
+            timeLabel = new Label();
             label2 = new Label();
             plusLeftLabel = new Label();
             label3 = new Label();
@@ -51,27 +52,28 @@
             label15 = new Label();
             dividedLeftLabel = new Label();
             startButton = new Button();
+            timer1 = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)sum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)difference).BeginInit();
             ((System.ComponentModel.ISupportInitialize)product).BeginInit();
             ((System.ComponentModel.ISupportInitialize)quotient).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // timeLabel
             // 
-            label1.BorderStyle = BorderStyle.FixedSingle;
-            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(490, 16);
-            label1.Name = "label1";
-            label1.Size = new Size(200, 30);
-            label1.TabIndex = 0;
-            label1.Click += label1_Click;
+            timeLabel.BorderStyle = BorderStyle.FixedSingle;
+            timeLabel.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            timeLabel.Location = new Point(490, 16);
+            timeLabel.Name = "timeLabel";
+            timeLabel.Size = new Size(200, 44);
+            timeLabel.TabIndex = 0;
+            timeLabel.Click += label1_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(287, 9);
+            label2.Location = new Point(287, 16);
             label2.Name = "label2";
             label2.Size = new Size(176, 37);
             label2.TabIndex = 1;
@@ -128,6 +130,7 @@
             sum.Size = new Size(100, 47);
             sum.TabIndex = 1;
             sum.TextAlign = HorizontalAlignment.Center;
+            sum.Enter += answer_Enter;
             // 
             // difference
             // 
@@ -286,6 +289,12 @@
             startButton.TabIndex = 0;
             startButton.Text = "Mulai Kuis";
             startButton.UseVisualStyleBackColor = true;
+            startButton.Click += startButton_Click;
+            // 
+            // timer1
+            // 
+            timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
             // 
             // Form1
             // 
@@ -314,7 +323,7 @@
             Controls.Add(label3);
             Controls.Add(plusLeftLabel);
             Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(timeLabel);
             Name = "Form1";
             Text = " ";
             ((System.ComponentModel.ISupportInitialize)sum).EndInit();
@@ -327,7 +336,7 @@
 
         #endregion
 
-        private Label label1;
+        private Label timeLabel;
         private Label label2;
         private Label plusLeftLabel;
         private Label label3;
@@ -350,5 +359,6 @@
         private Label label15;
         private Label dividedLeftLabel;
         private Button startButton;
+        private System.Windows.Forms.Timer timer1;
     }
 }
